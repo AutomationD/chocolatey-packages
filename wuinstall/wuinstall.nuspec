@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>wuinstall</id>
+    <version>1.0.0</version>
+    <title>Install windows updates automatically</title>
+    <authors>xeox</authors>
+    <owners>http://chocolatey.org/profiles/kireevco</owners>
+    <projectUrl>http://wuinstall.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WuInstall is a command line tool that makes it possible to install Windows Updates on demand. This gives you full control over the patching process. You decide what patches should be applied when and on which machine.</description>
+    <summary>WuInstall is a command line tool that makes it possible to install Windows Updates on demand.</summary>
+    <tags>WSUS, automation</tags>
+    <dependencies>
+      <dependency id="Chocolatey" version="0.9.8.20" />
+    </dependencies>
+  </metadata>
+</package>

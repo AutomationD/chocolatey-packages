@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>dell-omsa</id>
+    <version>7.1.0.121620133</version>
+    <title>Dell Open Manage Server Administrator</title>
+    <authors>Dell, INC</authors>
+    <owners>http://chocolatey.org/profiles/kireevco</owners>
+    <projectUrl>http://dell.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dell OpenManage™ is a hardware management solution that helps IT departments more efficiently manage Dell PowerEdge™ servers in virtual, physical, local and remote environments, operating in-band and out-of band, with or without a systems management software agent.</description>
+    <summary>Dell OpenManage™ is a hardware management solution that helps IT departments more efficiently manage Dell PowerEdge™ servers.</summary>
+    <tags>Dell, omsa</tags>
+    <dependencies>
+      <dependency id="Chocolatey" version="0.9.8.20" />
+    </dependencies>
+  </metadata>
+</package>
