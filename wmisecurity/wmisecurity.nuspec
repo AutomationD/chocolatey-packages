@@ -4,9 +4,10 @@
     <id>wmisecurity</id>
     <version>1.0.0</version>
     <title>WMI Namespace Security</title>
-    <authors>J_Madden</authors>
+    <authors>kireevco</authors>
     <owners>http://chocolatey.org/profiles/kireevco</owners>
-    <projectUrl>http://www.codeproject.com/Articles/15848/WMI-Namespace-Security</projectUrl>
+	<copyright>http://www.codeproject.com/Articles/15848/WMI-Namespace-Security</copyright>
+    <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>WMI security is implemented by granting trustees permissions to WMI namespaces. A WMI namespace is a collection of logically grouped data and methods describing computer components or services. You can view WMI namespace security on the Windows platform by opening the WMI Control in the Computer Management console, and then expand "Services and Applications." Click "WMI Control" to highlight, then right click and choose "Properties."</description>
     <summary>WMI Namespace Security utility</summary>
