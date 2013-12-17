@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>wmisecurity</id>
-    <version>1.0.0</version>
+    <version>1.0.0.121620131</version>
     <title>WMI Namespace Security</title>
     <authors>kireevco</authors>
     <owners>http://chocolatey.org/profiles/kireevco</owners>
