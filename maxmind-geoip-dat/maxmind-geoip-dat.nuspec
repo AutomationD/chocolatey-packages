@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>maxmind-geoip-dat</id>
+    <version>1.0.0.121720132</version>
+    <title>Maxmind Geoip Database</title>
+    <authors>kireevco</authors>
+    <owners>http://chocolatey.org/profiles/kireevco</owners>
+	<copyright>maxmind.com</copyright>
+    <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MaxMind's GeoIP2 web services and GeoIP2 databases are an evolution of our original GeoIP web services and databases, which we now refer to as GeoIP Legacy. This document highlights the most important changes for developers. Make sure you specify path via something like that: -params "path=c:\path\to\location\;path=c:\secondpath\to\location" </description>
+    <summary>MaxMind's GeoIP2 web services and GeoIP2 databases are an evolution of our original GeoIP web services and databases. To update a database file force reinstall the package</summary>
+    <tags>MaxMind, GeoIP</tags>
+    <dependencies>
+      <dependency id="Chocolatey" version="0.9.8.20" />
+    </dependencies>
+  </metadata>
+</package>
