@@ -3,7 +3,7 @@
   <metadata>
     <id>wuinstall</id>
     <version>1.0.0</version>
-    <title>Install windows updates automatically</title>
+    <title>wuInstall</title>
     <authors>kireevco</authors>
     <owners>http://chocolatey.org/profiles/kireevco</owners>
     <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>

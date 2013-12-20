@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>wuinstall.run</id>
+    <version>1.0.0.2013121919</version>
+    <title>wuInstall update runner</title>
+    <authors>kireevco</authors>
+    <owners>http://chocolatey.org/profiles/kireevco</owners>
+    <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>
+    <copyright>http://wuinstall.com/</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WuInstall is a command line tool that makes it possible to install Windows Updates on demand. This package runs wuInstall with the following parameters: "wuInstall /install /logfile_append c:\wuinstall.log /disable_ie_firstruncustomize /disableprompt /reboot_if_needed /autoaccepteula /rebootcycle 3". You can pass your parameters to the wuInstall by specifying them in installer arguments (for example: -ia "/search /reboot_if_needed").</description>
+    <summary>WuInstall is a command line tool that makes it possible to install Windows Updates on demand.</summary>
+    <tags>WSUS, automation, wuinstall</tags>
+    <dependencies>
+      <dependency id="wuinstall" />
+    </dependencies>
+  </metadata>
+</package>

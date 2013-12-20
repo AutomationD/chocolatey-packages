@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>maxmind-geoip-dat</id>
-    <version>1.0.0.121720132</version>
+    <version>1.0.0.121720133</version>
     <title>Maxmind Geoip Database</title>
     <authors>kireevco</authors>
     <owners>http://chocolatey.org/profiles/kireevco</owners>
