@@ -4,7 +4,7 @@
     <id>logstash</id>
     <version>1.3.3.2014021403</version>
     <title>logstash</title>
-    <authors>kireevco</authors>
+    <authors>logstash.net</authors>
     <owners>http://chocolatey.org/profiles/kireevco</owners>
     <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>
 	<copyright>http://logstash.net</copyright>
