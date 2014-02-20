@@ -1,6 +1,6 @@
 #NOTE: Please remove any commented lines to tidy up prior to releasing the package, including this one
 
-$packageName = 'mongodb.core' # arbitrary name for the package, used in messages
+$packageName = 'mongodb.core.2.2' # arbitrary name for the package, used in messages
 $packageDirectory = 'mongodb'
 $mongoVersion = '2.2.7'
 

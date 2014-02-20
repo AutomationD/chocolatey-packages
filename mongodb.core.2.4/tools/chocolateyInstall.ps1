@@ -1,8 +1,8 @@
 #NOTE: Please remove any commented lines to tidy up prior to releasing the package, including this one
 
-$packageName = 'mongodb.core' # arbitrary name for the package, used in messages
+$packageName = 'mongodb.core.2.4' # arbitrary name for the package, used in messages
 $packageDirectory = 'mongodb'
-$mongoVersion = '2.2.7'
+$mongoVersion = '2.4.9'
 
 
 $isWin7_2008R2_OrGreater = [Environment]::OSVersion.Version -ge (new-object 'Version' 6,1)
