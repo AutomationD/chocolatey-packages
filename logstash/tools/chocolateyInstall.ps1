@@ -1,4 +1,4 @@
-$url='https://download.elasticsearch.org/logstash/logstash/logstash-1.3.3-flatjar.jar'
+$url='https://download.elasticsearch.org/logstash/logstash/logstash-1.4.1-flatjar.jar'
 $jarfile3='c:/logstash/logstash.jar'
 $cmdfile='c:/logstash/logstash.cmd'
 $confile = 'c:/logstash/logstash.conf'

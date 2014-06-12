@@ -1,8 +1,8 @@
 #NOTE: Please remove any commented lines to tidy up prior to releasing the package, including this one
 
-$packageName = 'mongodb.core.2.4' # arbitrary name for the package, used in messages
+$packageName = 'mongodb.core.2.6' # arbitrary name for the package, used in messages
 $packageDirectory = 'mongodb'
-$mongoVersion = '2.4.9'
+$mongoVersion = '2.6.1'
 
 
 $isWin7_2008R2_OrGreater = [Environment]::OSVersion.Version -ge (new-object 'Version' 6,1)
@@ -26,9 +26,9 @@ if($env:chocolatey_bin_root -ne $null) {
 	$binRoot = $env:chocolatey_bin_root
 }
 
-
-$installDir = $(join-path $(join-path $binRoot $packageDirectory))
+$installDir = $(join-path $binRoot $packageDirectory)
 $mongoDir = $(join-path $installDir $mongoVersion)
+
 
 # download and unpack a zip file
 Install-ChocolateyZipPackage $packageName "$url" $installDir
@@ -58,7 +58,7 @@ try { #error handling is only necessary if you need to do anything in addition t
     Write-Host "Script Path: $scriptPath" 
     
     
-	$renameFrom = $($(join-path $mongoDir $zipFileName)+"\")
+	$renameFrom = $($(join-path $installDir $zipFileName)+"\")
 	
 	Write-Host "Renaming '$renameFrom' to $mongoDir"    
 	#robocopy $renameFrom  $($mongoDir+"\") /MIR /MOVE /NFL /NDL /NJH /NJS /nc /ns /np	

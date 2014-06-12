@@ -26,10 +26,11 @@ if($env:chocolatey_bin_root -ne $null) {
 	$binRoot = $env:chocolatey_bin_root
 }
 
-$mongoDir = $(join-path $(join-path $binRoot $packageDirectory) $mongoVersion)
+$installDir = $(join-path $(join-path $binRoot $packageDirectory))
+$mongoDir = $(join-path $installDir $mongoVersion)
 
 # download and unpack a zip file
-Install-ChocolateyZipPackage $packageName "$url" $binRoot
+Install-ChocolateyZipPackage $packageName "$url" $installDir
 
 
 
@@ -57,21 +58,22 @@ try { #error handling is only necessary if you need to do anything in addition t
     Write-Host "Script Path: $scriptPath" 
     
     
-	$renameFrom = $($(join-path $binRoot $zipFileName)+"\")
+	$renameFrom = $($(join-path $mongoDir $zipFileName)+"\")
 	
 	Write-Host "Renaming '$renameFrom' to $mongoDir"    
-	robocopy $renameFrom  $($mongoDir+"\") /MIR /MOVE /NFL /NDL /NJH /NJS /nc /ns /np
+	#robocopy $renameFrom $($mongoDir+"\") /MIR /MOVE /NFL /NDL /NJH /NJS /nc /ns /np
+	move-item $renameFrom $mongoDir -force
 
-    $dataDir = $(join-path $mongoDir 'data')
-    if(!$(test-path $dataDir)){mkdir $dataDir}
+    #$dataDir = $(join-path $mongoDir 'data')
+    #if(!$(test-path $dataDir)){mkdir $dataDir}
     
-    $dataDbDir = $(join-path $dataDir 'db')
-    if (!$(test-path $dataDbDir)){mkdir $dataDbDir}
+    #$dataDbDir = $(join-path $dataDir 'db')
+    #if (!$(test-path $dataDbDir)){mkdir $dataDbDir}
 
-    $logsDir = $(join-path $mongoDir 'log')
-    if(!$(test-path $logsDir)){mkdir $logsDir}
+    #$logsDir = $(join-path $mongoDir 'log')
+    #if(!$(test-path $logsDir)){mkdir $logsDir}
 
-    $binDir = join-path $env:chocolateyinstall 'bin'
+    #$binDir = join-path $env:chocolateyinstall 'bin'
 
     #$mongoBats = Get-ChildItem -Path $mongoDir -Filter mongo*.bat
 
