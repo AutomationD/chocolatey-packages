@@ -2,11 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>logstash</id>
-    <version>1.4.1.2014060201</version>
+    <version>1.4.1.2014061247</version>
     <title>logstash</title>
     <authors>logstash.net</authors>
     <owners>http://chocolatey.org/profiles/kireevco</owners>
-    <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>
+    <projectUrl>https://github.7om/kireevco/chocolatey-packages</projectUrl>
 	<copyright>http://logstash.net</copyright>
     <iconUrl>http://logstash.net/images/logstash.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
