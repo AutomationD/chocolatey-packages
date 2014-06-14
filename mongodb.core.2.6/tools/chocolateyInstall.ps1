@@ -1,98 +1,78 @@
-#NOTE: Please remove any commented lines to tidy up prior to releasing the package, including this one
+$package_version = "2.6.1"
 
-$packageName = 'mongodb.core.2.6' # arbitrary name for the package, used in messages
-$packageDirectory = 'mongodb'
-$mongoVersion = '2.6.1'
+$package_name = 'mongodb.core.2.6'
+$package_dir=Join-Path "c:\mongodb" $package_version
 
+$bin_dir = $(Join-Path $package_dir "bin")
+$log_dir = $(Join-Path $package_dir "log")
+$log_file = $(Join-Path $log_dir "${package_name}.log")
 
-$isWin7_2008R2_OrGreater = [Environment]::OSVersion.Version -ge (new-object 'Version' 6,1)
-$processor = Get-WmiObject Win32_Processor
-$is64bit = $processor.AddressWidth -eq 64
+$current_datetime = Get-Date -format yyyyddMMhhmm
+$package_backup_dir = "${package_dir}-old_${current_datetime}"
 
-$fileName = "mongodb-win32-i386-$mongoVersion.zip"
-if ($is64bit) {
-    if ($isWin7_2008R2_OrGreater) {
-        $fileName = "mongodb-win32-x86`_64-2008plus-$mongoVersion.zip"
+$is_win7_2008r2_or_greater = [Environment]::OSVersion.Version -ge (new-object 'Version' 6,1)
+$is_64bit = $(Get-WmiObject Win32_Processor).AddressWidth -eq 64
+
+if ($is_64bit) {
+    if ($is_win7_2008r2_or_greater) {
+        $package_file_name = "mongodb-win32-x86`_64-2008plus-${package_version}"
+        
     } else {
-        $fileName = "mongodb-win32-x86`_64-$mongoVersion.zip"
+        $package_file_name = "mongodb-win32-x86`_64-${package_version}"
     }
 }
 
-$url = "http://downloads.mongodb.org/win32/$fileName"
-
-## Where we will install mongodb to: 
-$binRoot = "$env:systemdrive"
-if($env:chocolatey_bin_root -ne $null) {
-	$binRoot = $env:chocolatey_bin_root
-}
-
-$installDir = $(join-path $binRoot $packageDirectory)
-$mongoDir = $(join-path $installDir $mongoVersion)
 
 
-# download and unpack a zip file
-Install-ChocolateyZipPackage $packageName "$url" $installDir
+$url="http://downloads.mongodb.org/win32/${package_file_name}.zip"
 
 
-try { #error handling is only necessary if you need to do anything in addition to/instead of the main helpers
-  # other helpers - using any of these means you want to uncomment the error handling up top and at bottom.
-  # downloader that the main helpers use to download items
-  #Get-ChocolateyWebFile "$packageName" 'DOWNLOAD_TO_FILE_FULL_PATH' "$url" "$url64"
-  # installer, will assert administrative rights - used by Install-ChocolateyPackage
-  #Install-ChocolateyInstallPackage "$packageName" "$installerType" "$silentArgs" '_FULLFILEPATH_' -validExitCodes $validExitCodes
-  # unzips a file to the specified location - auto overwrites existing content
-  #Get-ChocolateyUnzip "FULL_LOCATION_TO_ZIP.zip" "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-  # Runs processes asserting UAC, will assert administrative rights - used by Install-ChocolateyInstallPackage
-  #Start-ChocolateyProcessAsAdmin 'STATEMENTS_TO_RUN' 'Optional_Application_If_Not_PowerShell' -validExitCodes $validExitCodes
-  # add specific folders to the path - any executables found in the chocolatey package folder will already be on the path. This is used in addition to that or for cases when a native installer doesn't add things to the path.
-  #Install-ChocolateyPath 'LOCATION_TO_ADD_TO_PATH' 'User_OR_Machine' # Machine will assert administrative rights
-  # add specific files as shortcuts to the desktop
-  #$target = Join-Path $MyInvocation.MyCommand.Definition "$($packageName).exe"
-  #Install-ChocolateyDesktopLink $target
-  
-  #------- ADDITIONAL SETUP -------#
-  # make sure to uncomment the error handling if you have additional setup to do
-    
-    $zipFileName = [io.path]::GetFileNameWithoutExtension($fileName)
-    $scriptPath = $(Join-Path (Split-Path -parent $MyInvocation.MyCommand.Definition) "$zipFileName")
-    Write-Host "Script Path: $scriptPath" 
+try {
     
     
-	$renameFrom = $($(join-path $installDir $zipFileName)+"\")
-	
-	Write-Host "Renaming '$renameFrom' to $mongoDir"    
-	#robocopy $renameFrom  $($mongoDir+"\") /MIR /MOVE /NFL /NDL /NJH /NJS /nc /ns /np	
-	move-item $renameFrom $mongoDir -force
-
-    #$dataDir = $(join-path $mongoDir 'data')
-    #if(!$(test-path $dataDir)){mkdir $dataDir}
+    if (!(Test-Path -path ${package_backup_dir}) -and (Test-Path -Path ${package_dir})) {
     
-    #$dataDbDir = $(join-path $dataDir 'db')
-    #if (!$(test-path $dataDbDir)){mkdir $dataDbDir}
+        New-Item "${package_backup_dir}" -Type Directory | Out-Null
+        Write-Host "Backing up current ${package_name} installation from ${package_dir}\* to ${package_backup_dir}."
+        #Write-Host "Copy Recursively ${package_dir} to ${package_backup_dir} "
+        Copy-Item -Recurse "${package_dir}\*" ${package_backup_dir} -Exclude *-old*
 
-    #$logsDir = $(join-path $mongoDir 'log')
-    #if(!$(test-path $logsDir)){mkdir $logsDir}
+        Write-Host "Uninstalling current version of ${package_name}"
+        cuninst $package_name
 
-    #$binDir = join-path $env:chocolateyinstall 'bin'
+        if ($LastExitCode -ne 0) {
+            Write-Host "Uninstaller not found. Current version probably doesn't have it. Executing built-in uninstall"
+            try {
+                Remove-Item -recurse $(Join-Path $package_dir "\*") -exclude *.conf.*, *-bak*, *-old*                
 
-    #$mongoBats = Get-ChildItem -Path $mongoDir -Filter mongo*.bat
+                Write-ChocolateySuccess $package_name
+            } catch {
+                Write-ChocolateyFailure $package_name "$($_.Exception.Message)"
+                throw
+            }
+        }
+    } else {
+        if (Test-Path -path ${package_backup_dir}){
+            Write-Error "Can't create more than 1 backup per minute (I know that's stupid). Please try in 1 minute."
+        }
+        
+    }
 
-    #$batchFileName = Join-Path $mongoDir 'mongo.bat'
-    #$executable = join-path $mongoDir 'bin\mongo.exe'
-    #"@echo off
-    #$executable %*" | Out-File $batchFileName -encoding ASCII
-
-    
-	#$batchFileName = Join-Path $mongoDir 'MongoRotateLogs.bat'
-    #"@echo off
-    #$executable --eval `'db.runCommand(`"logRotate`")`' mongohost:27017/admin" | Out-File $batchFileName -encoding ASCII
+    Install-ChocolateyZipPackage "${package_name}" $url $package_dir
 
 
-  
-  # the following is all part of error handling
-  Write-ChocolateySuccess "$packageName"
+    Move-Item "$(Join-Path ${package_dir} ${package_file_name}\*)" "${package_dir}" -Force
+    Remove-Item $(Join-Path ${package_dir} ${package_file_name}) -Force -Recurse
+
+    Write-Host "Making sure ${package_dir} is in place"
+    if (!(Test-Path -path $package_dir)) {New-Item $package_dir -Type Directory  | Out-Null}
+
+    Write-Host "Making sure ${log_dir} is in place"
+    if (!(Test-Path -path $log_dir)) { New-Item $log_dir -Type Directory  | Out-Null }
+
+    Write-ChocolateySuccess $package_name
+
 } catch {
-  Write-ChocolateyFailure "$packageName" "$($_.Exception.Message)"
-  throw 
+    Write-ChocolateyFailure $package_name "$($_.Exception.Message)"
+    throw
 }
-

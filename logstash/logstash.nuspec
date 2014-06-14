@@ -2,16 +2,18 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>logstash</id>
-    <version>1.4.1.2014061247</version>
+    <version>1.4.1.2014061249</version>
     <title>logstash</title>
-    <authors>logstash.net</authors>
+    <authors>logstash</authors>
     <owners>http://chocolatey.org/profiles/kireevco</owners>
-    <projectUrl>https://github.7om/kireevco/chocolatey-packages</projectUrl>
+    <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>
 	<copyright>http://logstash.net</copyright>
     <iconUrl>http://logstash.net/images/logstash.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Logstash is a tool for managing events and logs. You can use it to collect logs, parse them, and store them for later use (like, for searching). Speaking of searching, logstash comes with a web interface for searching and drilling into all of your logs. This package installs logstash flat jar as an agent service via nssm. All you need to do - is to configure your logstash.conf and start logstash service. Service is installed with these parameters: "java.exe -Xmx512M -jar logstash.jar agent --config logstash.conf --log logstash.log
-"</description>
+    <description>Logstash is a tool for managing events and logs. You can use it to collect logs, parse them, and store them for later use (like, for searching). 
+	This package installs logstash flat jar as an agent service via nssm. All you need to do - is to configure your logstash.conf in conf.d\ directory and start Logstash service (sc start Logstash).
+	Service is installed using nssm and is calling bin\logstash.cmd which wraps bin\logstash.bat with these parameters: "logstash.bat agent --config c:/logstash/conf.d/ --log c:/logstash/log/logstash.log"
+	</description>
     <summary>Logstash Agent package</summary>
     <tags>logstash, logging</tags>
     <dependencies>
