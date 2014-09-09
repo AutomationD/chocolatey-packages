@@ -1,4 +1,4 @@
-$package_version = "1.4.1"
+$package_version = "1.4.2"
 $url="https://download.elasticsearch.org/logstash/logstash/logstash-${package_version}.zip"
 
 $package_name = 'logstash'
