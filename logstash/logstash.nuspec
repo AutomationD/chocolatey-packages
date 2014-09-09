@@ -17,7 +17,7 @@
     <summary>Logstash Agent package</summary>
     <tags>logstash, logging</tags>
     <dependencies>
-      <dependency id="javaruntime" version="[7.0.0,7.0.45]" />
+      <dependency id="javaruntime" version="[7.0.0,8.0.0]" />
       <dependency id="NSSM" version="2.16.0" />
       <dependency id="Chocolatey" version="0.9.8.20" />
     </dependencies>
