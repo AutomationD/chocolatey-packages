@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if ??? doesn?t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>newrelic-dotnet</id>
+    <title>New Relic .NET Agent</title>
+    <version>{{PackageVersion}}</version>
+    <authors>NewRelic</authors>
+    <owners>kireevco</owners>
+    <summary>New Relic .NET Agent</summary>
+    <description>New Relic .NET Agent that allows you to monitor your .NET application. Package has following parameters:
+	
+	-ia NRLICENSEKEY=license_key # Specify Your NewRelic license key
+	-param 'restartiis=true' # (Optional) Stop IIS service, install package, start IIS after. 
+	
+	This package is updated automatically to use new url when a new version comes out.
+	</description>
+	
+    <projectUrl>https://www.newrelic.com</projectUrl>
+    <tags>newrelic-dotnet NewRelic dotnet .Net</tags>
+    <copyright>https://www.newrelic.com</copyright>
+    <licenseUrl>https://www.newrelic.com</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://newrelic.com/assets/newrelic/source/NewRelic-logo-square.png</iconUrl>
+    <!--<dependencies>
+      <dependency id="" version="{{PackageVersion}}" />
+    </dependencies>-->
+    <releaseNotes>https://docs.newrelic.com/docs/release-notes/agent-release-notes/net-release-notes</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
