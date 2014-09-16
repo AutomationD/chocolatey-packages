@@ -11,8 +11,9 @@
     <summary>New Relic .NET Agent</summary>
     <description>New Relic .NET Agent that allows you to monitor your .NET application. Package has following parameters:
 	
-	-ia NRLICENSEKEY=license_key # Specify Your NewRelic license key
-	-param 'restartiis=true' # (Optional) Stop IIS service, install package, start IIS after. 
+	-param 'license_key=newrelic_key' # Specify Your NewRelic license key
+	-param 'restartiis=true' # (Optional) Stop IIS service, install package, start IIS after.
+	-param 'license_key=your_key;restartiis=true' # Specify License key and handle IIS restarts.
 	
 	This package is updated automatically to use new url when a new version comes out.
 	</description>

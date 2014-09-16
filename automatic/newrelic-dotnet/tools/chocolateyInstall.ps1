@@ -15,11 +15,16 @@ $url64 = '{{DownloadUrlx64}}' # 64bit URL here or remove - if installer decides,
 $silentArgs = '/qb INSTALLLEVEL=50' # "/s /S /q /Q /quiet /silent /SILENT /VERYSILENT" # try any of these to get the silent installer #msi is always /quiet
 $validExitCodes = @(0) #please insert other valid exit codes here, exit codes for ms http://msdn.microsoft.com/en-us/library/aa368542(VS.85).aspx
 
-
+# Defaults
 $restartiis = $false
+
+
+
+
+
 if (![string]::IsNullOrEmpty($env:chocolateyPackageParameters))
 {
-	if ($env:chocolateyPackageParameters.ToLower().Contains("restartiis"))
+	if ($env:chocolateyPackageParameters.ToLower().Contains("restartiis") -or $env:chocolateyPackageParameters.ToLower().Contains("license_key"))
 	{		
 		# Getting Parameters
 		$rawTxt =  [regex]::escape($env:chocolateyPackageParameters)
@@ -38,6 +43,16 @@ if (![string]::IsNullOrEmpty($env:chocolateyPackageParameters))
 		else
 		{
 			$restartiis = $false
+		}
+		
+		if (![string]::IsNullOrEmpty($params.license_key))
+		{				
+			# Passing License key
+			$silentArgs = $silentArgs + " NR_LICENSE_KEY=" + $params.license_key			
+		}
+		else
+		{
+			Write-Warning "No New Relic license key specified. Please use -params 'license_key=<newrelic_key>' or alternatively specify it manually after installation."
 		}
 	}
 }
@@ -58,7 +73,6 @@ try { #error handling is only necessary if you need to do anything in addition t
 
 				Stop-Service $ServiceName
 				 
-				& "sc.exe" config $service.Name binPath= $ServiceExecutableFullPath start= auto | Write-Host
 				echo "Sleeping for $sleep_timeout seconds"	
 				
 				$i = 0
@@ -78,6 +92,10 @@ try { #error handling is only necessary if you need to do anything in addition t
 				
 				Install-ChocolateyPackage "$packageName" "$installerType" "$silentArgs" "$url" "$url64"  -validExitCodes $validExitCodes
 				
+				Write-Host "Configuring $ServiceName to autostart"
+				
+				Set-Service $ServiceName -startuptype "auto"
+				
 				Write-Host $("Starting "+$ServiceName+" service")
 				Start-Service $ServiceName
 		}
@@ -89,7 +107,7 @@ try { #error handling is only necessary if you need to do anything in addition t
 	}
 	else
 	{	
-		Write-Host "In order to stop iis before package specify parameter: -params 'restartiis=true'. IIS will not be restarted. Please do so manually"		
+		Write-Warning "IIS will not be restarted. Please do so manually. In order to stop & start IIS automatically use parameter: -params 'restartiis=true'. "		
 		Install-ChocolateyPackage "$packageName" "$installerType" "$silentArgs" "$url" "$url64"  -validExitCodes $validExitCodes
 	}
   

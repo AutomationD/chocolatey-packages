@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- Do not remove this test for UTF-8: if ??? doesn?t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+	<!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>logstash</id>
+    <version>{{PackageVersion}}</version>
+    <title>logstash</title>
+    <authors>logstash</authors>
+    <owners>k</owners>
+    <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>
+	<copyright>http://logstash.net</copyright>
+    <iconUrl>http://logstash.net/images/logstash.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Logstash is a tool for managing events and logs. You can use it to collect logs, parse them, and store them for later use (like, for searching). 
+	This package installs logstash as an agent service via nssm. All you need to do - is to configure your logstash.conf in conf.d\ directory and start Logstash service (sc start Logstash).
+	Service is installed using nssm and is calling bin\logstash.cmd which wraps bin\logstash.bat with these parameters: "logstash.bat agent --config c:/logstash/conf.d/ --log c:/logstash/log/logstash.log"
+	Package update backs up previous logstash directory to c:\logstash-old_DATETIME. Available parameters: 
+	backup (default=true) # Enables or disables backup copy of the previous installation
+	config #
+	autostart #
+	
+	Example:
+	-params 'backup=[true|false];config=[true|false];autostart=[true|false]
+	
+	
+	This package is updated automatically to use new url when a new version comes out.
+	</description>
+    <summary>Logstash Agent package</summary>
+    <tags>logstash, logging</tags>
+    <dependencies>
+      <dependency id="javaruntime" version="7.0" />
+      <dependency id="NSSM" version="2.16" />
+      <dependency id="Chocolatey" version="0.9.8" />
+    </dependencies>
+  </metadata>
+</package>
