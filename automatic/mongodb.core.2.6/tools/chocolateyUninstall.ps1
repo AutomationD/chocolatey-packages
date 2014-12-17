@@ -1,4 +1,4 @@
-$package_version = "2.6.1"
+$package_version = "2.6"
 $package_name = 'mongodb.core.2.6'
 $package_dir = Join-Path "c:\mongodb" $package_version
 

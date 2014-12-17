@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if ??? doesn?t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>moxi</id>
+    <title>Moxi</title>
+    <version>{{PackageVersion}}</version>
+    <authors>Couchbase.org</authors>
+    <owners>kireevco</owners>
+	<iconUrl>http://www.couchbase.com/wiki/download/attachments/11075991/couchbase</iconUrl>	
+    <summary>Moxi is a proxy for memcached traffic that can be used in a variety of ways and is especially useful against a Couchbase Server cluster.</summary>
+    <description>Moxi is a proxy for memcached traffic that can be used in a variety of ways and is especially useful against a Couchbase Server cluster.
+
+There a three main reasons for using moxi:
+-Compatibility
+You want the automatic, dynamic reconfiguration features of Couchbase, but you’re too busy to change your web application. moxi can help here by proxying requests to the correct Couchbase server nodes and will provide protocol transformations, too. That is, you can keep on using ascii memcached clients without any changes.
+
+-Simplification
+Simplifying your configuration. moxi can dynamically respond to cluster health updates, so your application doesn’t have to.
+
+-Performance
+You can use moxi within a “client-side” architecture (which runs on your web application servers). This can be helpful to share already-connected sockets, reduce the number of connections from web-app servers to Couchbase, and avoid extra machine hops.
+</description>
+    <projectUrl>http://docs.couchbase.com/moxi-manual-1.8/</projectUrl>
+    <tags>couchbase membase memcached keyvaluestore caching couchbase-community moxi</tags>
+    <copyright></copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes></releaseNotes>
+  </metadata>  
+</package>

@@ -2,16 +2,19 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>mongodb.core.2.6</id>
-    <version>2.6.1.2014061320</version>
+    <version>{{PackageVersion}}</version>
     <title>MongoDB 2.6.x</title>
     <authors>10gen</authors>
     <owners>kireevco</owners>
     <licenseUrl>http://www.mongodb.org/display/DOCS/Licensing</licenseUrl>
-    <projectUrl>http://github.com/kireevco/chocolatey-packages</projectUrl>
+    <projectUrl>http://mongodb.org</projectUrl>
     <iconUrl>http://fc01.deviantart.net/fs70/f/2010/168/e/1/Icon_MongoDB_by_xkneo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This package installs 2.6.x version of MongoDB into c:\mongodb\*version* directory. Doesn't register any services by default. Rewritten from scratch, added uninstall, backup functionality.</description>
     <summary>MongoDB (from "humongous") is a scalable, high-performance, open source NoSQL database written in C++. This package installs MongoDB into c:\mongodb\*version* directory. Doesn't register mongod service by default.</summary>
     <tags>mongo db document database nosql</tags>	
   </metadata> 
+  <files>
+    <file src="**" exclude="build\**" />
+  </files>
 </package>

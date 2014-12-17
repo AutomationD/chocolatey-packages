@@ -55,6 +55,14 @@ if (![string]::IsNullOrEmpty($env:chocolateyPackageParameters))
 			Write-Warning "No New Relic license key specified. Please use -params 'license_key=<newrelic_key>' or alternatively specify it manually after installation."
 		}
 	}
+	else
+	{
+		Write-Warning "No New Relic license key specified. Please use -params 'license_key=<newrelic_key>' or alternatively specify it manually after installation."
+	}
+}
+else
+{
+	Write-Warning "No New Relic license key specified. Please use -params 'license_key=<newrelic_key>' or alternatively specify it manually after installation."
 }
 
 
