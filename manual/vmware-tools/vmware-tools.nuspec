@@ -4,16 +4,14 @@
     <id>vmware-tools</id>
     <version>9.4.11</version>
     <title>VMWare Tools for Windows x64</title>
-    <authors>vmware</authors>
-    <owners>tdgeery</owners>
-	<copyright>http://www.vmware.com/download/eula/universal_eula</copyright>
+    <authors>VMWare</authors>
+    <owners>tdgeery, kireevco</owners>
+    <copyright>VmWare</copyright>
+    <licenseUrl>http://www.vmware.com/download/eula/universal_eula</licenseUrl>
     <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>VMWare tools for ESX Guest Windows x64 OS</description>
     <summary></summary>
     <tags>VMWare, VMWare Tools</tags>
-    <dependencies>
-      <dependency id="Chocolatey" version="0.9.8.33" />
-    </dependencies>
   </metadata>
 </package>
