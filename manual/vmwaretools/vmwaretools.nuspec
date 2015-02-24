@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>vmwaretools-x64</id>
+    <id>vmwaretools</id>
     <version>9.4.11.20150220</version>
-    <title>VMWare Tools for Windows 64-bit</title>
+    <title>VMWare Tools for Windows</title>
     <authors>vmware</authors>
     <owners>tdgeery</owners>
     <copyright>http://www.vmware.com/download/eula/universal_eula</copyright>
