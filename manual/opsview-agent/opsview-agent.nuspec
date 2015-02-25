@@ -13,10 +13,9 @@
 
         The software is distributed as is with no warranty of any kind.
     </description>
-    <summary></summary>
+    <summary>Installation for Opsview Agent</summary>
     <tags>opsview opsview-agent</tags>
     <licenseUrl>http://www.opsview.com/about-us/legal/usa-enterprise-license-subscription-agreement-opsview-inc</licenseUrl>
     <iconUrl>http://www.opsview.com/sites/all/themes/opsview/logo.png</iconUrl>
-    <dependencies></dependencies>
   </metadata>
 </package>
