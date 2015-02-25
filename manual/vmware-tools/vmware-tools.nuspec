@@ -2,11 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>vmware-tools</id>
-    <version>9.4.11.20150220</version>
+    <version>9.4.11</version>
     <title>VMWare Tools for Windows</title>
-    <authors>vmware</authors>
-    <owners>tdgeery</owners>
-    <copyright>http://www.vmware.com/download/eula/universal_eula</copyright>
+    <authors>VMWare, Inc.</authors>
+    <owners>tdgeery,kireevco</owners>
+    <copyright>vmware</copyright>
     <projectUrl>http://kb.vmware.com/kb/340</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>VMware Tools is a suite of utilities that enhances the performance of the virtual machine's guest operating system and improves management of the virtual machine. Without VMware Tools installed in your guest operating system, guest performance lacks important functionality. Installing VMware Tools eliminates or improves these issues:
@@ -26,10 +26,9 @@
         VMware user process
         VMware Tools control panel
     </description>
-    <summary></summary>
+    <summary>Drivers and tools for VMWare Virtual Machine</summary>
     <tags>VMWare VMWare Tools</tags>
     <licenseUrl>http://www.vmware.com/download/eula/universal_eula</licenseUrl>
     <iconUrl>http://wahlnetwork.com/wn/wp-content/uploads/2012/01/vmtools.png</iconUrl>
-    <dependencies></dependencies>
   </metadata>
 </package>
