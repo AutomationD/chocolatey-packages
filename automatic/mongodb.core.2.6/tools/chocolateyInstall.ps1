@@ -26,15 +26,16 @@ function getBaseUrl($url){
 $version = getVersionFromUrl("{{DownloadUrl}}")
 $base_url = getBaseUrl("{{DownloadUrl}}")
 
-$package_root = "c:\mongodb"
+$package_root = Join-Path $(Get-BinRoot) "mongodb"
 $package_name = "mongodb.core.2.6"
-$package_dir=Join-Path $package_root $version
+$package_version = "2.6"
+$package_dir=Join-Path $package_root $package_version
 $bin_dir = $(Join-Path $package_dir "bin")
 $log_dir = $(Join-Path $package_dir "log")
 $log_file = $(Join-Path $log_dir "${package_name}.log")
 
 $current_datetime = Get-Date -format yyyyddMMhhmm
-$package_backup_dir = "${package_dir}-old_${current_datetime}"
+$package_backup_dir = "${package_dir}_old_${current_datetime}"
 
 $is_win7_2008r2_or_greater = [Environment]::OSVersion.Version -ge (new-object 'Version' 6,1)
 $is_64bit = $(Get-WmiObject Win32_Processor).AddressWidth -eq 64
@@ -71,8 +72,7 @@ try {
         if ($LastExitCode -ne 0) {
             Write-Host "Uninstaller not found. Current version probably doesn't have it. Executing built-in uninstall"
             try {
-                Remove-Item -recurse $(Join-Path $package_dir "\*") -exclude *.conf.*, *-bak*, *-old*                
-
+                Remove-Item -recurse $(Join-Path $package_dir "\") -exclude *.conf.*, *-bak*, *-old*                
                 Write-ChocolateySuccess $package_name
             } catch {
                 Write-ChocolateyFailure $package_name "$($_.Exception.Message)"
@@ -80,6 +80,7 @@ try {
             }
         }
     } else {
+        Write-Host "Uninstaller was found. Uninstall finished."
         if (Test-Path -path ${package_backup_dir}){
             Write-Error "Can't create more than 1 backup per minute (I know that's stupid). Please try in 1 minute."
         }
@@ -103,6 +104,12 @@ try {
     Write-Host "Making sure ${log_dir} is in place"
     if (!(Test-Path -path $log_dir)) { New-Item $log_dir -Type Directory  | Out-Null }
 
+    Write-Host "Placing _version file"
+    $versionfilecontent = @"
+Chocolatey package: {{PackageName}} v{{PackageVersion}}
+MongoDB: v${version}
+"@
+    Set-Content $(Join-Path $package_dir "_version") $versionfilecontent -Encoding ASCII -Force
     Write-ChocolateySuccess $package_name
 
 } catch {

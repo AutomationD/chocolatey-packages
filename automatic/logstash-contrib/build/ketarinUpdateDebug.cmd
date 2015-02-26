@@ -1,3 +1,4 @@
+@echo off
 call config.cmd
 echo Cleaning up downloaded files (to prepare a new debug revision)
 ::forfiles -p "%WORKDIR%" -m "%NAME%*%VERSION%*" -c "cmd /c del @path"

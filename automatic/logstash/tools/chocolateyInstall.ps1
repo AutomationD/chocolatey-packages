@@ -6,7 +6,6 @@ $service_name = "Logstash"
 $package_dir="c:\${package_name}"
 
 $current_datetime = Get-Date -format yyyyddMMhhmm
-#$package_backup_dir = Join-Path ${package_dir} "${package_name}-old_${current_datetime}"
 $package_backup_dir = "${package_dir}-old_${current_datetime}"
 
 $bin_dir = $(Join-Path $package_dir "bin")
@@ -51,8 +50,7 @@ if (![string]::IsNullOrEmpty($env:chocolateyPackageParameters))
     if ($params.backup -eq 'true')
     {     
       Write-Host "Found 'backup' parameter enabled."
-      $backup_enabled = $true
-      
+      $backup_enabled = $true      
     }
     else
     {
@@ -63,8 +61,7 @@ if (![string]::IsNullOrEmpty($env:chocolateyPackageParameters))
     if ($params.config -eq 'true')
     {     
       Write-Host "Found 'config' parameter enabled. Sample config will be saved as conf.d\logstash.conf"
-      $config_enabled = $true
-      
+      $config_enabled = $true      
     }
     else
     {
@@ -93,15 +90,12 @@ try {
           try {
               if ($(Get-Service "$service_name" -ErrorAction SilentlyContinue).Status -eq "Running") {
                 Start-ChocolateyProcessAsAdmin "\\localhost stop `"${service_name}`"" "sc.exe"
-                # Start-ChocolateyProcessAsAdmin "Stop-Service \"${service_name}\" -Force"
                 Start-Sleep 2
               }
               
               if ($(Get-Service "$service_name"  -ErrorAction SilentlyContinue).Status -ne "Running") {
                 Remove-Item -recurse $(Join-Path $package_dir "\*") -exclude *.conf.*, *-bak*, *-old*
               }
-
-            # Write-ChocolateySuccess $package_name
           } catch {
             Write-ChocolateyFailure $package_name "$($_.Exception.Message)"
             throw
@@ -120,6 +114,7 @@ try {
 
     
     
+    # Sample dir (not used now)
     #Write-Host "Making sure ${config_sample_dir} is in place"
     #if (!(Test-Path -path $config_sample_dir)) {New-Item $config_sample_dir -Type Directory  | Out-Null}
 
@@ -134,7 +129,7 @@ try {
     if (!(Test-Path -path $log_dir)) { New-Item $log_dir -Type Directory  | Out-Null }
 
     Write-Host "Installing ${package_name} from ${url} to ${package_dir}"
-  Install-ChocolateyZipPackage "${package_name}" $url $package_dir
+    Install-ChocolateyZipPackage "${package_name}" $url $package_dir
     Move-Item "$(Join-Path ${package_dir} logstash-*\*)" "${package_dir}" -Force
     Remove-Item "$(Join-Path ${package_dir} logstash-*)" -Force
 
@@ -161,16 +156,16 @@ output {
     stdout {}
 }
 "@  
-        if ($config_enabled)
-    {
-      echo "Dropping a ${config_file} file (so you can start ${package_name} service right away."
-      Set-Content $config_file $confcontent -Encoding ASCII -Force    
-    }
-    else
-    {
-      echo "Dropping a sample ${package_name}.conf.sample file - rename it to logstash.conf if you want to use it!"
-      Set-Content $config_sample_file $confcontent -Encoding ASCII -Force       
-    }   
+      if ($config_enabled)
+      {
+        echo "Dropping a ${config_file} file (so you can start ${package_name} service right away."
+        Set-Content $config_file $confcontent -Encoding ASCII -Force    
+      }
+      else
+      {
+        echo "Dropping a sample ${package_name}.conf.sample file - rename it to logstash.conf if you want to use it!"
+        Set-Content $config_sample_file $confcontent -Encoding ASCII -Force       
+      }   
     }
 
     if ($serviceinfo = Get-Service "${service_name}" -ErrorAction SilentlyContinue)
@@ -180,11 +175,11 @@ output {
         if ($serviceinfo.status -eq 'Stopped')
         {
           echo "${service_name} service found and is stopped."
-          echo "Deleting ${service_name} Service"
           
-                Start-ChocolateyProcessAsAdmin "\\localhost delete `"${service_name}`"" "sc.exe"
-
-                echo "Installing ${service_name} Service"
+          echo "Deleting ${service_name} Service"          
+          Start-ChocolateyProcessAsAdmin "\\localhost delete `"${service_name}`"" "sc.exe"
+          
+          echo "Installing ${service_name} Service"
           Start-ChocolateyProcessAsAdmin "install ${service_name} ${cmd_file}" nssm
         }
       }
@@ -192,29 +187,28 @@ output {
       {
         echo "Stopping ${service_name} Service"
         Start-ChocolateyProcessAsAdmin "\\localhost stop `"${service_name}`"" "sc.exe"
-        Start-ChocolateyProcessAsAdmin echo "Deleting "${service_name}" Service"
+        
+        echo "Deleting "${service_name}" Service"
         Start-ChocolateyProcessAsAdmin "\\localhost delete `"${service_name}`"" "sc.exe"
+        
         echo "Installing ${service_name} Service"
         Start-ChocolateyProcessAsAdmin "install ${service_name} ${cmd_file}" nssm
-
       }
     }
     else
     {
       echo "No ${service_name} Service detected"
-        echo "Installing ${service_name} Service"
-    
-
+      echo "Installing ${service_name} Service"
       Start-ChocolateyProcessAsAdmin "install ${service_name} ${cmd_file}" nssm
     }
 
     Write-ChocolateySuccess $package_name
     
     if ($autostart_enabled)
-  {
-    Write-Host "Starting ${service_name}"
-    Start-ChocolateyProcessAsAdmin "Start-Service ${service_name}"
-  }
+    {
+      Write-Host "Starting ${service_name}"
+      Start-ChocolateyProcessAsAdmin "Start-Service ${service_name}"
+    }
 
 } catch {
     Write-ChocolateyFailure $package_name "$($_.Exception.Message)"
