@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>sming.core</id>
+    <version>0.0.4</version>
+    <title>Sming Framework</title>
+    <authors>Sming</authors>
+    <owners>kireevco</owners>
+    <copyright>Sming</copyright>
+    <licenseUrl>https://github.com/anakod/Sming/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/anakod/Sming</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Sming - Open Source framework for high efficiency WiFi SoC ESP8266 native development with C++ language.</description>
+    <summary></summary>
+    <tags>Sming, Arduino, ESP8266, SDK</tags>    
+  </metadata>
+</package>
