@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>vmware-tools</id>
-    <version>9.0.15</version>
+    <version>9.4.11.2400950</version>
     <title>VMWare Tools for Windows</title>
     <authors>VMWare, Inc.</authors>
     <owners>tdgeery,kireevco</owners>
