@@ -1,8 +1,8 @@
 ﻿$packageName = 'eclipse-cpp'
 $packageVersion = '4.4.2'
 
-$32BitUrl = 'http://www.eclipse.org/downloads/download.php?r=1&protocol=http&file=/technology/epp/downloads/release/luna/SR2/eclipse-cpp-luna-SR2-win32.zip'
-$64BitUrl = 'http://www.eclipse.org/downloads/download.php?r=1&protocol=http&file=/technology/epp/downloads/release/luna/SR2/eclipse-cpp-luna-SR2-win32-x86_64.zip'
+$32BitUrl = 'https://bintray.com/artifact/download/kireevco/generic/eclipse-cpp-luna-SR2-win32.zip'
+$64BitUrl = 'https://bintray.com/artifact/download/kireevco/generic/eclipse-cpp-luna-SR2-win32-x86_64.zip'
 
 $global:installLocation = "C:\Program Files\Eclipse Foundation\$packageVersion"
 $checksum = '82695bd4bce4db8a111b1e93d6bfcf23'
@@ -25,3 +25,5 @@ if (!(Test-Path $global:installLocation)) {
 } else {
     Write-Host "Eclipse looks already insalled. Using it." -foregroundcolor "green"
 }
+Write-Host "Ensuring Eclipse is in the PATH"
+Install-ChocolateyPath $(Join-Path $global:installLocation "eclipse") 'Machine'

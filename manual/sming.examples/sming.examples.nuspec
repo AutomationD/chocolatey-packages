@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>sming.core</id>
-    <version>1.0.5.20150413</version>
-    <title>Sming Framework</title>
+    <id>sming.examples</id>
+    <version>1.0.5.20150416</version>
+    <title>Sming Framework Examples</title>
     <authors>Sming</authors>
     <owners>kireevco</owners>
     <copyright>Sming</copyright>
@@ -13,5 +13,8 @@
     <description>Sming - Open Source framework for high efficiency WiFi SoC ESP8266 native development with C++ language.</description>
     <summary></summary>
     <tags>Sming, Arduino, ESP8266, SDK</tags>    
+    <dependencies>      
+      <dependency id="sming"/>
+    </dependencies>
   </metadata>
 </package>

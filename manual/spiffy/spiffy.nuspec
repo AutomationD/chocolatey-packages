@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>spiffy</id>
+    <version>1.0.1</version>
+    <title>Spiffy Tool</title>
+    <authors>xlfe</authors>
+    <owners>kireevco</owners>
+    <copyright>xlfe</copyright>
+    <licenseUrl>https://github.com/xlfe/spiffy</licenseUrl>
+    <projectUrl>https://github.com/xlfe/spiffy</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Spiffy builds a binary spiffs image for you to write_flash to a esp8266 runing nodemcu so you can get all the files onto your cool IoT device in one fell swoop..</description>
+    <summary>Spiffy builds a binary spiffs image for you to write_flash to a esp8266 runing nodemcu so you can get all the files onto your cool IoT device in one fell swoop..</summary>
+    <tags>Spiffy, ESP8266, SDK</tags>
+    <dependencies>      
+      <dependency id="mingw" />
+    </dependencies> 
+  </metadata>
+</package>

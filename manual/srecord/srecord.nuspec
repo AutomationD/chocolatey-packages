@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>srecord</id>
+    <version>1.64</version>
+    <title>Srecord</title>
+    <authors>GNU</authors>
+    <owners>kireevco</owners>
+    <copyright>GNU</copyright>
+    <licenseUrl>https://github.com/xlfe/spiffy</licenseUrl>
+    <projectUrl>https://www.gnu.org/copyleft/gpl.html</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The SRecord package is a collection of powerful tools for manipulating EPROM load files. It reads and writes numerous EPROM file formats, and can perform many different manipulations.</description>
+    <tags>Spiffy, ESP8266, SDK</tags>
+    <dependencies>      
+      <dependency id="mingw" />
+    </dependencies> 
+  </metadata>
+</package>

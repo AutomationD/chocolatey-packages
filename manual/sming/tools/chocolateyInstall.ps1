@@ -1,37 +1,48 @@
 $packageName = 'sming'
 $binRoot = Get-BinRoot
 $installDir = Join-Path "$binRoot" 'sming'
-
+$mingwPath = "$binRoot\mingw64"
 $mingw_get = Join-Path "$binRoot" "/mingw64/bin/mingw-get.exe"
 
+function mingw-install ([string]$mingwPackageName) {    
+    Start-ChocolateyProcessAsAdmin "install ${mingwPackageName} --reinstall --recursive" "${mingw_get}" -validExitCodes @(0,121)
+    # & "${mingw_get} install ${mingwPackageName}"     
+}
+
+
 Update-SessionEnvironment
-Write-Host "Installing required mingw packages"
 Write-Debug $env:Path
 
-Start-ChocolateyProcessAsAdmin "install mingw32-base" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install mingw32-mgwport" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install mingw32-pdcurses" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install mingw32-make" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install mingw32-autoconf" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install mingw32-automake" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install mingw32-base" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install mingw32-gdb" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install gcc" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install gcc-c++" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install libz" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install bzip2" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-base" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-coreutils" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-coreutils-ext" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-gcc-bin" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-wget-bin" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-m4" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-bison-bin" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-flex-bin" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-gawk" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-sed" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-autoconf" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-automake" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-mktemp" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-patch" "${mingw_get}"
-Start-ChocolateyProcessAsAdmin "install msys-libtool" "${mingw_get}"
+Write-Debug "Adding msys to the path"
+Install-ChocolateyPath "${mingwPath}\msys\1.0\bin"
+
+Write-Host "Installing / updading required mingw packages"
+mingw-install "mingw32-base"
+mingw-install "mingw32-mgwport"
+mingw-install "mingw32-pdcurses"
+mingw-install "mingw32-make"
+mingw-install "mingw32-autoconf"
+mingw-install "mingw32-automake"
+mingw-install "mingw32-base"
+mingw-install "mingw32-gdb"
+mingw-install "gcc"
+mingw-install "gcc-c++"
+mingw-install "libz"
+mingw-install "bzip2"
+mingw-install "msys-base"
+mingw-install "msys-coreutils"
+mingw-install "msys-coreutils-ext"
+mingw-install "msys-gcc-bin"
+mingw-install "msys-wget-bin"
+mingw-install "msys-m4"
+mingw-install "msys-bison-bin"
+mingw-install "msys-flex-bin"
+mingw-install "msys-gawk"
+mingw-install "msys-sed"
+mingw-install "msys-autoconf"
+mingw-install "msys-automake"
+mingw-install "msys-mktemp"
+mingw-install "msys-patch"
+mingw-install "msys-libtool"
+mingw-install "msys-make"
+Update-SessionEnvironment

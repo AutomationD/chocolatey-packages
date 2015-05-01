@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>sming</id>
-    <version>0.0.5</version>
+    <version>1.0.5.20150419</version>
     <title>Sming Framework</title>
     <authors>Sming</authors>
     <owners>kireevco</owners>
@@ -18,6 +18,9 @@
       <dependency id="esp8266-udk" />
       <dependency id="mingw-get" version="1.0.3"/>
       <dependency id="sming.core"/>
+      <dependency id="bc"/>
+      <dependency id="srecord"/>
+      <dependency id="spiffy"/>
     </dependencies>
   </metadata>
 </package>
