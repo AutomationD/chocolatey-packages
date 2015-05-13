@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>logstash-forwarder</id>
+    <version>0.4.0</version>
+    <title>Logstash Forwarder</title>
+    <authors>Elastic</authors>
+    <owners>kireevco</owners>
+    <copyright>Elastic</copyright>
+    <licenseUrl>https://raw.githubusercontent.com/elastic/logstash-forwarder/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/elastic/logstash-forwarder</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Logstash Forwarder is a tool to collect logs locally in preparation for processing elsewhere!. The lumberjack protocol used by this project exists to provide a network protocol for transmission that is secure, low latency, low resource usage, and reliable.
+</description>
+    <summary></summary>
+    <tags>logstash, lumberjack, logstash-forwarder</tags>
+    <dependencies>
+      <dependency id="nssm" version="2.24" />      
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>bc</id>
+    <version>1.06</version>
+    <title>bc</title>
+    <authors>gnuwin32</authors>
+    <owners>kireevco</owners>
+    <copyright>GnuWin</copyright>
+    <licenseUrl>http://www.gnu.org/licenses/gpl.html</licenseUrl>
+    <projectUrl>http://gnuwin32.sourceforge.net/packages/bc.htm</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>bc is an arbitrary precision numeric processing language. Syntax is similar to C, but differs in many substantial areas. It supports interactive execution of statements. bc is a utility included in the POSIX P1003.2/D11 draft standard.</description>
+    <summary></summary>
+    <tags>bc, gnu</tags> 
+    <dependencies>      
+      <dependency id="mingw" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>esp8266-udk</id>
+    <version>2.0.1.20150412</version>
+    <title>Unofficial Development Kit for Espressif ESP8266</title>
+    <authors>Mikhail Grigorev</authors>
+    <owners>kireevco</owners>
+    <copyright>Mikhail Grigorev</copyright>
+    <licenseUrl>http://programs74.ru/GPLv3.txt</licenseUrl>
+    <projectUrl>http://programs74.ru/GPLv3.txt</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Unofficial GCC compiler for SoC Xtensa LX106, Official Espressif ESP8266 SDK, Documentation for SoC ESP8266, Examples in the firmware source code in C language. Additional tools for working with boards based on the ESP8266.</description>
+    <summary></summary>
+    <tags>esp8266, SDK</tags>
+  </metadata>
+</package>
