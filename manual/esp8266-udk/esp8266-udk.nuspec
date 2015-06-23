@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>esp8266-udk</id>
-    <version>2.0.1.20150412</version>
+    <version>2.0.6</version>
     <title>Unofficial Development Kit for Espressif ESP8266</title>
     <authors>Mikhail Grigorev</authors>
     <owners>kireevco</owners>

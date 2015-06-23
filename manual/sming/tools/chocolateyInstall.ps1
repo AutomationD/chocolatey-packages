@@ -13,8 +13,8 @@ function mingw-install ([string]$mingwPackageName) {
 Update-SessionEnvironment
 Write-Debug $env:Path
 
-Write-Debug "Adding msys to the path"
-Install-ChocolateyPath "${mingwPath}\msys\1.0\bin"
+Write-Debug "Adding mingw & msys to the path"
+Install-ChocolateyPath "${mingwPath}\bin;${mingwPath}\msys\1.0\bin" "Machine"
 
 Write-Host "Installing / updading required mingw packages"
 mingw-install "mingw32-base"

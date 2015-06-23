@@ -1,6 +1,6 @@
 
 $packageName = 'sming'
-$packageVersion = '1.0.5'
+$packageVersion = '1.1.0'
 $url="https://github.com/anakod/Sming/archive/${packageVersion}.zip"
 $binRoot = Get-BinRoot
 $installDir = Join-Path "$binRoot" 'sming'
