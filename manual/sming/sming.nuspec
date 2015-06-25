@@ -16,10 +16,8 @@
     <dependencies>
       <dependency id="eclipse-cpp" />
       <dependency id="esp8266-udk" />
-      <dependency id="mingw-get" version="1.0.3"/>
+      <dependency id="mingw-get"/>
       <dependency id="sming.core"/>
-      <dependency id="bc"/>
-      <dependency id="srecord"/>
       <dependency id="spiffy"/>
     </dependencies>
   </metadata>
