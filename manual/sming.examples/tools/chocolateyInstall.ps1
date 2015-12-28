@@ -61,10 +61,10 @@ if (Get-Command "eclipse.exe" -ErrorAction SilentlyContinue) {
     Remove-Item $installDir/Sming-$packageVersion -force -Recurse
 
     Write-Host "Importing Examples"
-    Start-ChocolateyProcessAsAdmin "-nosplash -data $eclipseWorkspace -application org.eclipse.cdt.managedbuilder.core.headlessbuild -importAll $installDir" "`"$eclipseExeC`""
+    Start-ChocolateyProcessAsAdmin "-nosplash -data `"$eclipseWorkspace`" -application org.eclipse.cdt.managedbuilder.core.headlessbuild -importAll $installDir" "`"$eclipseExeC`""
 
     Write-Host "Creating shortcut to '$eclipseExe' -data $eclipseWorkspace"
-    Install-ChocolateyDesktopLinkWithName "$eclipseExe" "-data $eclipseWorkspace" "Sming Examples"
+    Install-ChocolateyDesktopLinkWithName "$eclipseExe" "-data `"$eclipseWorkspace`"" "Sming Examples"
 
     Update-SessionEnvironment
 } else {
