@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>opsview-agent</id>
+    <version>28.01.15.1600</version>
+    <title>Opsview Agent for Windows</title>
+    <authors>Opsview</authors>
+    <owners>tdgeery,kireevco</owners>
+    <copyright>Opsview Ltd.</copyright>
+    <projectUrl>http://www.opsview.com/resources/downloads/opsview-agents</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Opsview supports the use of monitoring agents to gather data from remote devices. The most common types of monitoring agents used with Opsview are SNMP (Simple Network Management Protocol) and NRPE (Nagios Remote Plugin Executor). Please note that only the agent package should be installed rather than all of the Opsview packages.
+
+        The software is distributed as is with no warranty of any kind.
+    </description>
+    <summary>Installation for Opsview Agent</summary>
+    <tags>opsview opsview-agent</tags>
+    <licenseUrl>http://www.opsview.com/about-us/legal/usa-enterprise-license-subscription-agreement-opsview-inc</licenseUrl>
+    <iconUrl>http://www.opsview.com/sites/all/themes/opsview/logo.png</iconUrl>
+  </metadata>
+</package>

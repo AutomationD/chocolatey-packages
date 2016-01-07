@@ -2,16 +2,33 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>vmware-tools</id>
-    <version>9.4.11</version>
-    <title>VMWare Tools for Windows x64</title>
-    <authors>VMWare</authors>
-    <owners>tdgeery, kireevco</owners>
-    <copyright>VmWare</copyright>
-    <licenseUrl>http://www.vmware.com/download/eula/universal_eula</licenseUrl>
-    <projectUrl>https://github.com/kireevco/chocolatey-packages</projectUrl>
+    <version>9.4.12.2627939</version>
+    <title>VMWare Tools for Windows</title>
+    <authors>VMWare, Inc.</authors>
+    <owners>tdgeery,kireevco</owners>
+    <copyright>vmware</copyright>
+    <projectUrl>http://kb.vmware.com/kb/340</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>VMWare tools for ESX Guest Windows x64 OS</description>
-    <summary></summary>
-    <tags>VMWare, VMWare Tools</tags>
+    <description>VMware Tools is a suite of utilities that enhances the performance of the virtual machine's guest operating system and improves management of the virtual machine. Without VMware Tools installed in your guest operating system, guest performance lacks important functionality. Installing VMware Tools eliminates or improves these issues:
+    
+        Low video resolution
+        Inadequate color depth
+        Incorrect display of network speed
+        Restricted movement of the mouse
+        Inability to copy and paste and drag-and-drop files
+        Missing sound
+        Provides the ability to take quiesced snapshots of the guest OS
+        Synchronizes the time in the guest operating system with the time on the host
+        Provides support for guest-bound calls created with the VMware VIX API
+        VMware Tools includes these components:
+        VMware Tools service
+        VMware device drivers
+        VMware user process
+        VMware Tools control panel
+    </description>
+    <summary>Drivers and tools for VMWare Virtual Machine</summary>
+    <tags>VMWare VMWare Tools</tags>
+    <licenseUrl>http://www.vmware.com/download/eula/universal_eula</licenseUrl>
+    <iconUrl>http://wahlnetwork.com/wn/wp-content/uploads/2012/01/vmtools.png</iconUrl>
   </metadata>
 </package>
