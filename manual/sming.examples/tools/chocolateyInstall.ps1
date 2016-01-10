@@ -1,7 +1,7 @@
 Update-SessionEnvironment
 $packageName = 'sming.examples'
-$packageVersion = '1.0.5'
-$url="https://github.com/anakod/Sming/archive/${packageVersion}.zip"
+$packageVersion = '2.1.0'
+$url="https://github.com/SmingHub/Sming/archive/${packageVersion}.zip"
 $binRoot = Get-BinRoot
 $installDir = Join-Path "$binRoot" 'sming.examples'
 $eclipseWorkspace = Join-Path $env:HOMEPATH "sming.examples"
@@ -56,8 +56,9 @@ param(
 if (Get-Command "eclipse.exe" -ErrorAction SilentlyContinue) { 
     $eclipseExe = $(gcm "eclipse.exe" | Select-Object -ExpandProperty Definition)
     $eclipseExeC = $(gcm "eclipsec.exe" | Select-Object -ExpandProperty Definition)
+    
     Install-ChocolateyZipPackage "$packageName" $url $installDir
-    Copy-Item $installDir/Sming-$packageVersion/* $installDir/ -Force -Recurse
+    Copy-Item $installDir/Sming-$packageVersion/samples $installDir/ -Force -Recurse
     Remove-Item $installDir/Sming-$packageVersion -force -Recurse
 
     Write-Host "Importing Examples"
