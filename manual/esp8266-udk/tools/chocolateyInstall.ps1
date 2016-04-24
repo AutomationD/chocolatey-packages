@@ -1,4 +1,4 @@
-$url='https://github.com/CHERTS/esp8266-devkit/releases/download/v2.0.8/Espressif-ESP8266-DevKit-v2.0.8-x86.exe'
+$url='https://github.com/CHERTS/esp8266-devkit/releases/download/v2.0.9/Espressif-ESP8266-DevKit-v2.0.9-x86.exe'
 $packageName = 'esp8266-udk'
 $installerType = 'exe'
 $silentArgs = '/VERYSILENT'
