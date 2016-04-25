@@ -22,7 +22,7 @@
     <summary>Logstash Contrib Package</summary>
     <tags>logstash, logging, contrib</tags>
     <dependencies>      
-      <dependency id="logstash" version="1.4.0"/>      
+      <dependency id="logstash" version="2.3"/>      
     </dependencies>
   </metadata>
   <files>
