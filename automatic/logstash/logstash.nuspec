@@ -5,11 +5,15 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>logstash</id>
     <version>{{PackageVersion}}</version>
-    <title>logstash</title>
-    <authors>logstash</authors>
-    <owners>kireevco</owners>
-    <projectUrl>http://logstash.net</projectUrl>
-    <copyright>http://logstash.net</copyright>
+    <title>Logstash</title>
+    <authors>https://github.com/elastic/kibana/graphs/contributors</authors>
+    <owners>kireevco hambone</owners>
+    <projectUrl>https://www.elastic.co/products/logstash</projectUrl>
+	<projectSourceUrl>https://github.com/elastic/logstash</projectSourceUrl>
+	<packageSourceUrl>https://github.com/kireevco/chocolatey-packages</packageSourceUrl>
+	<docsUrl>https://www.elastic.co/guide/en/logstash/current/index.html</docsUrl>
+    <releaseNotes>https://www.elastic.co/guide/en/logstash/current/releasenotes.html</releaseNotes>
+	<copyright>https://www.elastic.co/products/logstash</copyright>
     <iconUrl>http://logstash.net/images/logstash.png</iconUrl>
     <licenseUrl>https://github.com/elasticsearch/logstash/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -28,7 +32,7 @@
   This package is updated automatically to use new url when a new version comes out.
   </description>
     <summary>Logstash Agent package</summary>
-    <tags>logstash, logging</tags>
+    <tags>logstash logging elastic admin</tags>
     <dependencies>
       <dependency id="javaruntime" version="7.0"/>
       <dependency id="NSSM" version="2.16"/>
