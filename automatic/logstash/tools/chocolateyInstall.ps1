@@ -202,7 +202,7 @@ output {
       Start-ChocolateyProcessAsAdmin "install ${service_name} ${cmd_file}" nssm
     }
 
-    Write-ChocolateySuccess $package_name
+    #Write-ChocolateySuccess $package_name
     
     if ($autostart_enabled)
     {
@@ -211,6 +211,6 @@ output {
     }
 
 } catch {
-    Write-ChocolateyFailure $package_name "$($_.Exception.Message)"
+    #Write-ChocolateyFailure $package_name "$($_.Exception.Message)"
     throw
 }
