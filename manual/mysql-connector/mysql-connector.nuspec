@@ -2,18 +2,25 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>mysql-connector</id>
-    <version>6.6.6.2014060203</version>
+    <version>6.9.9</version>
     <title>MySQL Connector</title>
     <authors>Oracle</authors>
     <owners>kireevco</owners>
     <projectUrl>http://dev.mysql.com/downloads/connector/net</projectUrl>
-    <iconUrl>http://dev.mysql.com/common/logos/logo-mysql-110x57.png</iconUrl>    
+    <packageSourceUrl>https://github.com/kireevco/chocolatey-packages/tree/master/manual/mysql-connector</packageSourceUrl>
+    <iconUrl>http://dev.mysql.com/common/logos/logo-mysql-110x57.png</iconUrl>
+    <licenseUrl>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</licenseUrl>
+    <releaseNotes>https://dev.mysql.com/doc/relnotes/connector-net/en/</releaseNotes>
+    <docsUrl>https://dev.mysql.com/doc/connector-net/en/index.html</docsUrl>
+    <mailingListUrl>https://forums.mysql.com/list.php?38</mailingListUrl>
+    <bugTrackerUrl>https://bugs.mysql.com/</bugTrackerUrl>
+    <projectSourceUrl>https://github.com/mysql/mysql-connector-net</projectSourceUrl>    
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Connector/Net is a fully-managed ADO.NET driver for MySQL.</summary>
 	<description>Connector/Net is a fully-managed ADO.NET driver for MySQL. Starting with version 6.7, Connector/Net will no longer include the MySQL for Visual Studio integration. That functionality is now available in a separate product called MySQL for Visual Studio available using the MySQL Installer for Windows.</description>	
     <tags>MySQL driver .net odbc mysql connector</tags>
-    <dependencies>
-      <dependency id="Chocolatey" version="0.9.8.20" />
-    </dependencies>
   </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
 </package>
